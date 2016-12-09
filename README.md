@@ -1,9 +1,9 @@
-# Coding Academy PSD to HTML
-
+# Modular CSS Sample
+## PSD to HTML & CSS
 
 
 ```
-yarn install
+npm install
 ```
 
 ```
