@@ -1,17 +1,9 @@
-@import 'vendor';
-@import 'functions';
-@import 'helpers';
-@import 'fonts';
-@import 'vars';
-@import 'layout';
-@import 'base';
-@import 'forms';
+$main-color: lightgray;
 
-/* Components */
+.todo-item{
+    color: $main-color;
+}
 
-@import 'main-nav';
-@import 'articles';
-@import 'newsletter';
-@import 'main-footer';
-
-
+.field{
+    width: 20%!important;
+}

@@ -3,137 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Coding Academy</title>
+  <title>Hello Vue</title>
   <link rel="stylesheet" href="dist/style.css">
+  <link rel="stylesheet" href="node_modules/vue-material/dist/vue-material.css">
 </head>
 
 <body>
-  <!-- Main Container -->
-  <section class="container">
-    <!--  Main Nav -->
-    <nav class="main-nav flex align-center">
-      <input type="checkbox" id="main-nav__mobile-checkbox">
-      <label for="main-nav__mobile-checkbox" class="main-nav__mobile-icon">&#9776;</label>
-      <div class="main-nav__inner flex space-between">
-        <ul class="clean-list main-nav__logo">
-          <li>
-            <a href="#">
-              <img src="assets/logo.png" alt="minimo">
-            </a>
-          </li>
-        </ul>
-        <ul class="clean-list main-nav__items flex">
-          <li><a href="#" class="main-nav__item">lifestyle</a></li>
-          <li><a href="#" class="main-nav__item">photodiary</a></li>
-          <li><a href="#" class="main-nav__item">music</a></li>
-          <li><a href="#" class="main-nav__item">travel</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!--  End  Main Nav -->
-    <!-- Main Post -->
-    <div>
-      <picture>
-        <source media="(max-width: 500px)" srcset="assets/image_mobile.png" class="img-responsive article-preview-primary__img">
-        <img src="assets/image.png" class="img-responsive article-preview-primary__img">
-      </picture>
 
-      <article class="inner-container">
-        <p class="article-preview__meta">photodiary</p>
-        <p class="article-preview__title">The perfect weekend getaway
-        </p>
-        <p class="article-preview__summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-          unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-          voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-          nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-          non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-        <p class="article-preview__meta article-preview__action">Leave a comment</p>
-      </article>
-    </div>
-    <!-- End Main Post -->
-    <!-- Posts Gallery -->
-    <section class="inner-container">
-      <section class="articles-preview flex flex-wrap">
-        <div class="article-preview">
-          <img src="assets/image1.png" alt="" class="img-responsive article-preview__img">
-          <p class="article-preview__meta">Lifestyle</p>
-          <a class="article-preview__title" href="#">More than just a music festival</a>
-          <p class="article-preview__summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis iusto reprehenderit ab! Vel tempore commodi
-            explicabo nostrum a repellendus blanditiis necessitatibus eaque, delectus, quam, rem! Sequi cupiditate ipsam,
-            dolorem quo.
-          </p>
-        </div>
-        <div class="article-preview">
-          <img src="assets/image2.png" alt="" class="img-responsive article-preview__img">
-          <p class="article-preview__meta">Lifestyle</p>
-          <a class="article-preview__title" href="#">Life tastes better with coffee</a>
-          <p class="article-preview__summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis iusto reprehenderit ab! Vel tempore commodi
-            explicabo nostrum a repellendus blanditiis necessitatibus eaque, delectus, quam, rem! Sequi cupiditate ipsam,
-            dolorem quo.
-          </p>
-        </div>
-        <div class="article-preview">
-          <img src="assets/image3.png" alt="" class="img-responsive article-preview__img">
-          <p class="article-preview__meta">photodiary</p>
-          <a class="article-preview__title" href="#">American dream</a>
-          <p class="article-preview__summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis iusto reprehenderit ab! Vel tempore commodi
-            explicabo nostrum a repellendus blanditiis necessitatibus eaque, delectus, quam, rem! Sequi cupiditate ipsam,
-            dolorem quo.
-          </p>
-        </div>
-        <div class="article-preview">
-          <img src="assets/image4.png" alt="" class="img-responsive article-preview__img">
-          <p class="article-preview__meta">A day exploring the Alps</p>
-          <a class="article-preview__title" href="#">Life tastes better with coffee</a>
-          <p class="article-preview__summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis iusto reprehenderit ab! Vel tempore commodi
-            explicabo nostrum a repellendus blanditiis necessitatibus eaque, delectus, quam, rem! Sequi cupiditate ipsam,
-            dolorem quo.
-          </p>
-        </div>
-      </section>
-    </section>
-    <!-- End Posts Gallery -->
-  </section>
-  <!-- End Main Container -->
-  <!-- News Letter Form -->
-  <section class="newsletter flex align-center justify-center">
-    <form>
-      <fieldset>
-        <legend class="header">Sign up for our newsletter!</legend>
-        <div class="form-group newsletter-email">
-          <input type="text" class="form-control newsletter__email-input" placeholder="Enter a valid email address">
-          <button type="submit" class="newsletter__submit-btn"></button>
-        </div>
-      </fieldset>
+  <div id="app">
+    <h1>{{hello}}</h1> 
+    <ol>
+      <todo-item v-for="task in todo" v-bind:task="task"></todo-item>
+    </ol>
+    <form v-on:submit.prevent>
+       <md-input-container class="field">
+          <label>Task name</label>
+        <md-input v-model="newTaskName" required placeholder="task name"></md-input>
+      </md-input-container>
+        
+        <button v-on:click="add(newTaskName)">Add</button>
+      
     </form>
-  </section>
-  <!-- End News Letter Form -->
-  <!-- Home Load More -->
-  <div class="flex align-center justify-center home__load-more-section">
-    <button class="home__load-more-btn">Load More</button>
+    <button v-on:click="removeRandomly">Random</button>
   </div>
-  <!-- Home Load More -->
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <div class="container full-height">
-      <section class="inner-container full-height flex align-center space-between">
-        <ul class="main-footer__left-items clean-list flex">
-          <li class="main-footer__item"><a href="#">Terms and conditions</a></li>
-          <li class="main-footer__item"><a href="#">Privacy</a></li>
-        </ul>
-        <ul class="main-footer__right-items clean-list flex">
-          <li class="main-footer__item"><a href="#">Follow</a></li>
-          <li class="main-footer__item"><a href="#">facebook</a></li>
-          <li class="main-footer__item"><a href="#">twiter</a></li>
-        </ul>
-      </section>
-    </div>
-  </footer>
-  <!-- End Main Footer -->
+  
 </body>
-
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="node_modules/vue-material/dist/vue-material.js"></script>
+  <script src="build/main.bundle.js"></script>
 </html>
