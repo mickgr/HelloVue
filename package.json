@@ -1,7 +1,7 @@
 {
-  "name": "codingacademy-psdhtml",
+  "name": "hello-vue",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all --parallel babel browser styles",
